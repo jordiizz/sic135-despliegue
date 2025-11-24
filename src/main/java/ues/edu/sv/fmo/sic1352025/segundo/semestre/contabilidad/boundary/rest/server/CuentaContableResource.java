@@ -54,8 +54,7 @@ public class CuentaContableResource implements Serializable{
 
         } catch (Exception e) {
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, e.getMessage(), e);
-            //return Response.serverError().build();
-            return Response.status(414).build();
+            return Response.serverError().build();
         }
     }
 }
