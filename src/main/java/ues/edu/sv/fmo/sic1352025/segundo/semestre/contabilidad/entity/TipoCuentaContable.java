@@ -38,7 +38,6 @@ public class TipoCuentaContable implements Serializable {
     private String nombre;
 
     @OneToMany(mappedBy = "idTipoCuentaContable")
-    @JsonbTransient
     private Collection<CuentaContable> cuentaContableCollection;
 
     public TipoCuentaContable() {
@@ -64,6 +63,7 @@ public class TipoCuentaContable implements Serializable {
         this.nombre = nombre;
     }
 
+    @JsonbTransient
     public Collection<CuentaContable> getCuentaContableCollection() {
         return cuentaContableCollection;
     }

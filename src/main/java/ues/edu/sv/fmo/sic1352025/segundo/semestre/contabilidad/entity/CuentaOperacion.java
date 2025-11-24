@@ -30,12 +30,12 @@ public class CuentaOperacion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "id_cuenta_operacion")
+    @Column(name = "id_cuenta_operacion", columnDefinition = "uuid")
     private UUID idCuentaOperacion;
-    @JoinColumn(name = "id_cuenta_contable", referencedColumnName = "id_cuenta_contable")
+    @JoinColumn(name = "id_cuenta_contable", referencedColumnName = "id_cuenta_contable", columnDefinition = "uuid")
     @ManyToOne
     private CuentaContable idCuentaContable;
-    @JoinColumn(name = "id_operacion_bancaria", referencedColumnName = "id_operacion_bancaria")
+    @JoinColumn(name = "id_operacion_bancaria", referencedColumnName = "id_operacion_bancaria", columnDefinition = "uuid")
     @ManyToOne
     private OperacionBancaria idOperacionBancaria;
 

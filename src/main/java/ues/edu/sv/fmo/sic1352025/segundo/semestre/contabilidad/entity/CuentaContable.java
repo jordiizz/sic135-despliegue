@@ -37,27 +37,22 @@ public class CuentaContable implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "id_cuenta_contable")
+    @Column(name = "id_cuenta_contable", columnDefinition = "uuid")
     private UUID idCuentaContable;
+
     @Column(name = "nombre")
     private String nombre;
+
     @Column(name = "codigo")
     private BigInteger codigo;
-
-    @JsonbTransient
-    @OneToMany(mappedBy = "idCuentaContablePadre")
-    private List<CuentaContable> cuentaContablePadreCollection;
-
-    @JoinColumn(name = "id_cuenta_contable_padre", referencedColumnName = "id_cuenta_contable")
-    @ManyToOne
-    private CuentaContable idCuentaContablePadre;
-
-    @JoinColumn(name = "id_tipo_cuenta_contable", referencedColumnName = "id_tipo_cuenta_contable")
-    @ManyToOne(fetch = FetchType.LAZY)
+       
+    @JoinColumn(name = "id_tipo_cuenta_contable", referencedColumnName = "id_tipo_cuenta_contable", columnDefinition = "uuid")
+    @ManyToOne(fetch = FetchType.LAZY )
+   // @JsonbTransient
     private TipoCuentaContable idTipoCuentaContable;
 
-    @JsonbTransient
     @OneToMany(mappedBy = "idCuentaContable")
+    @JsonbTransient
     private List<CuentaOperacion> cuentaOperacionCollection;
 
     @Column(name = "naturaleza")
@@ -94,22 +89,8 @@ public class CuentaContable implements Serializable {
         this.codigo = codigo;
     }
 
-    public List<CuentaContable> getCuentaContablePadreCollection() {
-        return cuentaContablePadreCollection;
-    }
-
-    public void setCuentaContablePadreCollection(List<CuentaContable> cuentaContableCollection) {
-        this.cuentaContablePadreCollection = cuentaContableCollection;
-    }
-
-    public CuentaContable getIdCuentaContablePadre() {
-        return idCuentaContablePadre;
-    }
-
-    public void setIdCuentaContablePadre(CuentaContable idCuentaContablePadre) {
-        this.idCuentaContablePadre = idCuentaContablePadre;
-    }
-
+    
+    @JsonbTransient
     public TipoCuentaContable getIdTipoCuentaContable() {
         return idTipoCuentaContable;
     }
@@ -117,7 +98,8 @@ public class CuentaContable implements Serializable {
     public void setIdTipoCuentaContable(TipoCuentaContable idTipoCuentaContable) {
         this.idTipoCuentaContable = idTipoCuentaContable;
     }
-
+    
+    
     public List<CuentaOperacion> getCuentaOperacionCollection() {
         return cuentaOperacionCollection;
     }
