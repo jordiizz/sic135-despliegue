@@ -15,7 +15,7 @@ import ues.edu.sv.fmo.sic1352025.segundo.semestre.contabilidad.entity.CuentaCont
  *
  * @author jordi
  */
-@Path("cuentascontables")
+@Path("cuentas-contables")
 public class CuentaContableResource implements Serializable{
     
     @Inject
