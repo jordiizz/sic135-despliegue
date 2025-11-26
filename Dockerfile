@@ -16,7 +16,9 @@ RUN mvn -q clean package -DskipTests
 # ---------------------------------------------------------
 # 2. Imagen final con Open Liberty (desde Docker Hub, compatible con Render)
 # ---------------------------------------------------------
-FROM openliberty/open-liberty:full-java21-openj9
+FROM openliberty/open-liberty:kernel-slim-java21-openj9
+
+
 
 ENV SERVER_NAME=sic135_contabilidad
 ENV WLP_INSTALL_DIR=/opt/ol/wlp
