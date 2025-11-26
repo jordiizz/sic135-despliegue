@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <server>
 
     <featureManager>
         <feature>jakartaee-10.0</feature>
-        <feature>jdbc-4.3</feature>
-        <feature>cdi-4.0</feature>
     </featureManager>
 
+    <!-- Render: puerto dinámico -->
     <httpEndpoint id="defaultHttpEndpoint"
                   host="0.0.0.0"
-                  httpPort="9080"
-                  httpsPort="9443">
-        <cors domain="*" 
+                  httpPort="${env.PORT}"
+                  httpsPort="-1">
+        <cors domain="*"
               allowedMethods="GET, POST, PUT, DELETE, OPTIONS"
-              allowedHeaders="*" 
+              allowedHeaders="*"
               allowCredentials="true"
-              maxAge="3600" />
+              maxAge="3600"/>
     </httpEndpoint>
 
-    <applicationManager autoExpand="true"/>
-
-    <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
+    <applicationManager autoExpand="true" />
 
     <!-- Driver PostgreSQL -->
     <library id="postgresql-library">
-        <fileset dir="${server.config.dir}/drivers" includes="postgresql-42.7.4.jar"/>
+        <fileset dir="${server.config.dir}/drivers"
+                 includes="postgresql-42.7.4.jar"/>
     </library>
 
     <!-- DataSource -->
@@ -36,9 +33,12 @@
             jdbcDriverRef="postgresql-driver"
             type="javax.sql.XADataSource"
             transactional="true">
-        <properties.postgresql serverName="dpg-d4jm876uk2gs73boelg0-a" databaseName="sic135_contabilidad" portNumber="5432" user="sic135_contabilidad_user" password="OaaPH9ZGafJAypToEcHiBzuLudVtlIfJ"
-
-        />
+        <properties.postgresql
+                serverName="dpg-d4jm876uk2gs73boelg0-a"
+                databaseName="sic135_contabilidad"
+                portNumber="5432"
+                user="sic135_contabilidad_user"
+                password="OaaPH9ZGafJAypToEcHiBzuLudVtlIfJ"/>
     </dataSource>
 
     <jdbcDriver id="postgresql-driver" libraryRef="postgresql-library"/>
