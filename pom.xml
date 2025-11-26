@@ -24,13 +24,7 @@
         <liberty-plugin.version>3.10.3</liberty-plugin.version>
     </properties>
  <dependencies>
-    <dependency>
-    <groupId>org.postgresql</groupId>
-    <artifactId>postgresql</artifactId>
-    <version>42.7.3</version>
-    <scope>compile</scope>
-</dependency>
-
+    
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>

@@ -21,11 +21,10 @@
     <applicationManager autoExpand="true" />
 
     <!-- Driver PostgreSQL -->
-    <library id="postgresql-library">
-        <fileset dir="${server.config.dir}/drivers"
-                 includes="postgresql-42.7.4.jar"/>
+    
+        <library id="postgresql-library">
+        <fileset dir="${server.config.dir}/lib" includes="postgresql-42.7.4.jar"/>
     </library>
-
     <!-- DataSource -->
     <dataSource
             id="ContabilidadDataSource"
