@@ -17,7 +17,7 @@ RUN mvn -q clean package -DskipTests
 # 2. Imagen final con Open Liberty
 # ---------------------------------------------------------
 # CAMBIO AQUÍ: Usamos la versión UBI que sí existe
-FROM icr.io/appcafe/open-liberty:kernel-slim-java21-openj9-ubi-minimal
+FROM icr.io/appcafe/open-liberty:full-java21-openj9-ubi-minimal
 
 
 ENV SERVER_NAME=sic135_contabilidad
