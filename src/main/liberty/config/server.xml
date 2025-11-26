@@ -36,7 +36,7 @@
             jdbcDriverRef="postgresql-driver"
             type="javax.sql.XADataSource"
             transactional="true">
-        <properties.postgresql serverName="host.docker.internal" databaseName="sic135_contabilidad" portNumber="5432" user="postgres" password="abc123"
+        <properties.postgresql serverName="dpg-d4jm876uk2gs73boelg0-a" databaseName="sic135_contabilidad" portNumber="5432" user="sic135_contabilidad_user" password="OaaPH9ZGafJAypToEcHiBzuLudVtlIfJ"
 
         />
     </dataSource>
