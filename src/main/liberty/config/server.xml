@@ -4,6 +4,8 @@
 
     <featureManager>
         <feature>jakartaee-10.0</feature>
+        <feature>CORS</feature>
+
     </featureManager>
 
     <!-- Render: puerto dinámico -->
@@ -11,12 +13,12 @@
                   host="0.0.0.0"
                   httpPort="${env.PORT}"
                   httpsPort="-1">
-        <cors domain="*"
+    </httpEndpoint>
+      <cors domain="*"
               allowedMethods="GET, POST, PUT, DELETE, OPTIONS"
               allowedHeaders="*"
               allowCredentials="true"
               maxAge="3600"/>
-    </httpEndpoint>
 
     <applicationManager autoExpand="true" />
 
